@@ -13,7 +13,6 @@ branches:
 script:
   - echo "test if deploy"
   - LATEST_COMMIT=$(git log -1 --format=format:%H --full-diff .)
-  - LATEST_BOT_COMMIT=$(git log -1 --format=format:%H --full-diff ./algotypes_bot)
 
 before_deploy:
   - rvm $(travis_internal_ruby) --fuzzy do ruby -S gem install faraday -v 1.8.0
