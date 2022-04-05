@@ -22,4 +22,4 @@ deploy:
     api_key: $HEROKU_KEY
     app: algotypes-bot
     on:
-      condition: $DEPLOY_BOT = true
+      all_branches: true
