@@ -8,27 +8,15 @@ notifications:
 
 branches:
   only:
-    - master
+    - main
 
 script:
   - echo "test if deploy"
   - LATEST_COMMIT=$(git log -1 --format=format:%H --full-diff .)
   - LATEST_BOT_COMMIT=$(git log -1 --format=format:%H --full-diff ./algotypes_bot)
-  - |
-    if [[ $LATEST_COMMIT == $LATEST_BOT_COMMIT ]]
-    then
-      echo "Deploy Heroku"
-      DEPLOY_BOT=true
-    fi
 
 before_deploy:
   - rvm $(travis_internal_ruby) --fuzzy do ruby -S gem install faraday -v 1.8.0
-  - |
-    if [[ $DEPLOY_BOT = true ]]
-    then
-      echo "Deploy Bots"
-      cd algotypes_bot
-    fi
 
 deploy:
   - provider: heroku
