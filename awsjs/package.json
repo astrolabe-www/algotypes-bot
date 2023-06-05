@@ -1,0 +1,11 @@
+{
+  "name": "algotypes-bot",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "deploy": "sls deploy"
+  },
+  "dependencies": {
+    "needle": "^3.2.0"
+  }
+}

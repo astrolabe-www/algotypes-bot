@@ -1,4 +1,5 @@
 .DS*
 .env
 node_modules
+.serverless
 *.code-workspace

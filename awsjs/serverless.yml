@@ -1,0 +1,25 @@
+org: thersan
+app: algotypes-bot
+service: algotypes-bot
+
+frameworkVersion: '3'
+
+provider:
+  name: aws
+  runtime: nodejs18.x
+  lambdaHashingVersion: 20201221
+  stage: ${opt:stage, 'dev'}
+  region: us-east-1
+  memorySize: 640
+  timeout: 16
+  environment:
+    TELEGRAM_API_TOKEN: ${param:TELEGRAM_API_TOKEN}
+
+functions:
+  card:
+    handler: handler.drawCard
+    events:
+      - http:
+          method: post
+          cors: true
+          path: /drawCard
