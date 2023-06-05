@@ -2,6 +2,7 @@
 
 const needle = require("needle");
 const { cards } = require("./cards.js");
+const querystring = require("querystring");
 
 const TXTS = {
   intro: {
